@@ -1,0 +1,29 @@
+{
+    "schema": "1.1",
+    "type": "whmcs-gateways",
+    "name": "hitpay",
+    "license": "MIT",
+    "category": "payments",
+    "description": {
+        "name": "HitPay Payment Gateway",
+        "tagline": "WHMCS HitPay Payment Gateway Module",
+        "long": "HitPay Payment Gateway Plugin allows merchants to accept PayNow QR, Cards, Apple Pay, Google Pay, WeChatPay, AliPay and GrabPay Payments.",
+        "features": [
+            "With HitPay Payment Gateway, customers can quickly checkout and complete orders with their preferred payment method",
+            "Pay only per transaction. No monthly, setup, admin or any hidden service fees"
+        ]
+    },
+    "logo": {
+        "filename": "logo.png"
+    },
+    "support": {
+        "homepage": "https:\/\/www.hitpayapp.com\/", 
+        "docs_url": "https:\/\/docs.hitpayapp.com\/docs\/"
+    },
+    "authors": [
+        {
+            "name": "HitPay",
+            "homepage": "https:\/\/www.hitpayapp.com\/"
+        }
+    ]
+}
