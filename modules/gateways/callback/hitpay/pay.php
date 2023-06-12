@@ -75,6 +75,12 @@ try {
                     ->setName($plan_name)
                     ->setCycle($cycle);
                 
+                if ($cycle == 'custom') {
+                    $customCycle = HitpayHelper::getCustomCycle($recurrings);
+                    $createSubscriptionPlanRequest->setCycleFrequency($customCycle['frequency']);
+                    $createSubscriptionPlanRequest->setCycleRepeat($customCycle['repeat']); 
+                }
+                
                 HitpayHelper::log($gatewayParams['name'], (array)$createSubscriptionPlanRequest, 'Create Recurring Plan Request:', $gatewayParams['debug']);
                 $result = $hitpayClient->createSubscriptionPlan($createSubscriptionPlanRequest);
                 HitpayHelper::log($gatewayParams['name'], (array)$result, 'Create Recurring Plan Response:', $gatewayParams['debug']);

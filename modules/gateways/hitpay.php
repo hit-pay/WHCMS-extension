@@ -29,7 +29,7 @@ define('HITPAY_VERSION', '1.1');
 function hitpay_MetaData()
 {
     return array(
-        'DisplayName' => 'Sellix Pay',
+        'DisplayName' => 'HitPay Payment Gateway',
         'APIVersion' => '1.1',
         'DisableLocalCredtCardInput' => false,
         'TokenisedStorage' => false,
