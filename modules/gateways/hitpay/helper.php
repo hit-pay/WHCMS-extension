@@ -283,43 +283,14 @@ class Helper
             if ($recurringcycleperiod == 1) {
                 $cycle = 'monthly';
             } else {
-                $cycle = 'custom';
+                $cycle = $recurringcycleperiod.' months';
             }
         } else if ($recurringcycleunits == 'years') {
             if ($recurringcycleperiod == 1) {
                 $cycle = 'yearly';
             } else {
-                $cycle = 'custom';
+                $cycle = $recurringcycleperiod.' years';
             }
-        } else if ($recurringcycleunits == 'weeks') {
-            if ($recurringcycleperiod == 1) {
-                $cycle = 'weekly';
-            } else {
-                $cycle = 'custom';
-            }
-        } else if ($recurringcycleunits == 'days') {
-                $cycle = 'custom';
-        }
-        return $cycle;
-    }
-    
-    public static function getCustomCycle($recurrings)
-    {
-        $cycle = array();
-        $recurringcycleperiod = $recurrings['recurringcycleperiod'];
-        $recurringcycleunits = strtolower($recurrings['recurringcycleunits']);
-        if ($recurringcycleunits == 'months') {
-            $cycle['repeat'] = $recurringcycleperiod;
-            $cycle['frequency'] = 'month';
-        } else if ($recurringcycleunits == 'years') {
-            $cycle['repeat'] = $recurringcycleperiod;
-            $cycle['frequency'] = 'year';
-        } else if ($recurringcycleunits == 'days') {
-            $cycle['repeat'] = $recurringcycleperiod;
-            $cycle['frequency'] = 'day';
-        } else if ($recurringcycleunits == 'weeks') {
-            $cycle['repeat'] = $recurringcycleperiod;
-            $cycle['frequency'] = 'week';
         }
         return $cycle;
     }
@@ -373,7 +344,6 @@ class Helper
                 if (!empty($column)) {
                     $result = $result->value($column);
                 }
-                return $result;
             }
             return false;
         }
@@ -406,13 +376,10 @@ class Helper
     {
         try {
             $result = Capsule::table("hitpay_recurring_transactions")->where("recurring_id", $recurring_id);
-            if (!empty($result->value('id'))) {
-                if (!empty($column)) {
-                    $result = $result->value($column);
-                }
-                return $result;
+            if (!empty($column)) {
+                $result = $result->value($column);
             }
-            return false;
+            return $result;
         }
         catch (\Exception $e) { 
             return false;
@@ -423,13 +390,10 @@ class Helper
     {
         try {
             $result = Capsule::table("hitpay_recurring_transactions")->where("invoiceid", $invoiceid);
-            if (!empty($result->value('id'))) {
-                if (!empty($column)) {
-                    $result = $result->value($column);
-                }
-                return $result;
+            if (!empty($column)) {
+                $result = $result->value($column);
             }
-            return false;
+            return $result;
         }
         catch (\Exception $e) { 
             return false;
