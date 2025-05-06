@@ -19,7 +19,7 @@ if (!defined("WHMCS")) {
     die("This file cannot be accessed directly");
 }
 
-define('HITPAY_VERSION', '1.1');
+define('HITPAY_VERSION', '1.2');
 
 /**
  * Define module related meta data.
@@ -30,7 +30,7 @@ function hitpay_MetaData()
 {
     return array(
         'DisplayName' => 'HitPay Payment Gateway',
-        'APIVersion' => '1.1',
+        'APIVersion' => '1.2',
         'DisableLocalCredtCardInput' => false,
         'TokenisedStorage' => false,
     );
@@ -47,11 +47,11 @@ function hitpay_MetaData()
  */
 function hitpay_config()
 {
-    if (HITPAY_VERSION == '1.1') {
+    //if (HITPAY_VERSION == '1.1') {
         HitpayHelper::createHitpayDbTable();
         HitpayHelper::createHitpayRecurringPlanDbTable();
         HitpayHelper::createHitpayRecurringTransactionDbTable();
-    }
+    //}
     
     $inputs = array(
         'FriendlyName' => array(

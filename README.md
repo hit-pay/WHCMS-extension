@@ -11,3 +11,9 @@ WHMCS module to use HitPay as a Payment Gateway.
 2. Login into your WHMCS admin area, go to `System Settings->Payment Gateways`, search for `HitPay` from the list of `All Payment gateways` and **click to activate**.
 
 3. Fill the API details.
+
+# Change Log
+
+= 1.2 = 
+* May 5, 2025
+* Fixed: Plan Id must be string error
